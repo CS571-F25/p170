@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from 'react-router'
 import './App.css'
-import Home from './components/Home.jsx'
-import AboutMe from './components/Contact.jsx'   
+import Home from './components/Home'
+import Contact from './components/Contact'   
 
 function App() {
   return <HashRouter>
