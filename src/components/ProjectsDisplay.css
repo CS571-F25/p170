@@ -1,0 +1,118 @@
+.projects-display-container {
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.projects-display-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #000000;
+  border-bottom: 3px solid #646cff;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.project-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.project-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: #646cff;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
+}
+
+.project-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-link-text {
+  color: #646cff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.project-card:hover .project-link-text {
+  transform: translateX(5px);
+  color: #535bf2;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .projects-display-title {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .project-card {
+    background: rgba(36, 36, 36, 0.95);
+  }
+
+  .project-title {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .project-description {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .project-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .projects-display-title {
+    font-size: 2rem;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+}
+

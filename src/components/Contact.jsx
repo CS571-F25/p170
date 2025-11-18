@@ -1,5 +1,15 @@
+import Navigation from './Navigation'
+import ContactForm from './ContactForm'
+import './Contact.css'
+
 export default function Contact (props) {
-    return <div>
-        <h1>Contact</h1>
-    </div>
+    return (
+        <div className="contact-container">
+            <Navigation />
+            <div className="contact-content">
+                <h1>Contact</h1>
+                <ContactForm />
+            </div>
+        </div>
+    )
 }

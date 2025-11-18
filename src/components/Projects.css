@@ -1,0 +1,12 @@
+.projects-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.projects-content {
+  padding-top: 120px; /* Space for fixed navbar */
+  padding: 120px 2rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
