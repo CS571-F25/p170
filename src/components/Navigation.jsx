@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import ThemeToggle from './ThemeToggle'
 import './Navigation.css'
 
 export default function Navigation() {
@@ -62,6 +63,7 @@ export default function Navigation() {
               Contact
             </Nav.Link>
           </Nav>
+          <ThemeToggle />
         </Navbar.Collapse>
       </Container>
     </Navbar>

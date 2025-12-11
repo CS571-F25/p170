@@ -1,0 +1,178 @@
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 2px solid rgba(100, 108, 255, 0.5);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.theme-toggle:hover {
+  border-color: rgba(100, 108, 255, 0.8);
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.3);
+}
+
+.theme-toggle.light {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(100, 108, 255, 0.5);
+}
+
+.toggle-slider {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, rgba(100, 108, 255, 0.9) 0%, rgba(138, 43, 226, 0.9) 100%);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  left: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle.light .toggle-slider {
+  transform: translateX(30px);
+  background: linear-gradient(135deg, rgba(255, 200, 0, 0.9) 0%, rgba(255, 150, 0, 0.9) 100%);
+}
+
+.toggle-icon {
+  font-size: 14px;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle.dark .toggle-icon:last-child {
+  opacity: 1;
+}
+
+.theme-toggle.dark .toggle-icon:first-child {
+  opacity: 0;
+}
+
+.theme-toggle.light .toggle-icon:first-child {
+  opacity: 1;
+}
+
+.theme-toggle.light .toggle-icon:last-child {
+  opacity: 0;
+}
+
+/* Light mode - only change background colors */
+:root.light-mode {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+}
+
+:root.light-mode body,
+:root.light-mode #root,
+:root.light-mode .home-container,
+:root.light-mode .about-container,
+:root.light-mode .projects-container,
+:root.light-mode .contact-container,
+:root.light-mode .hero-section,
+:root.light-mode .about-section,
+:root.light-mode .timeline-container,
+:root.light-mode .projects-display-container,
+:root.light-mode .contact-form-container,
+:root.light-mode .timeline-wrapper,
+:root.light-mode .quote-section,
+:root.light-mode .about-content,
+:root.light-mode .projects-content,
+:root.light-mode .contact-content {
+  background-color: var(--bg-primary) !important;
+}
+
+:root.light-mode .about-card,
+:root.light-mode .personal-card,
+:root.light-mode .university-card,
+:root.light-mode .courses-card,
+:root.light-mode .contact-form,
+:root.light-mode .project-card,
+:root.light-mode .timeline-content,
+:root.light-mode .social-icon,
+:root.light-mode .custom-navbar {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Light mode - change all white text to black (except placeholders) */
+:root.light-mode,
+:root.light-mode p,
+:root.light-mode h1,
+:root.light-mode h2,
+:root.light-mode h3,
+:root.light-mode h4,
+:root.light-mode h5,
+:root.light-mode h6,
+:root.light-mode span,
+:root.light-mode div,
+:root.light-mode label,
+:root.light-mode .hero-name,
+:root.light-mode .hero-tagline,
+:root.light-mode .quote-text,
+:root.light-mode .about-text,
+:root.light-mode .section-title,
+:root.light-mode .subsection-title,
+:root.light-mode .timeline-item-title,
+:root.light-mode .project-title,
+:root.light-mode .project-description,
+:root.light-mode .contact-form-title,
+:root.light-mode .social-links-title,
+:root.light-mode .timeline-title,
+:root.light-mode .projects-display-title,
+:root.light-mode .course-link,
+:root.light-mode .info-item,
+:root.light-mode .course-description,
+:root.light-mode .interest-tag,
+:root.light-mode .social-icon span,
+:root.light-mode .custom-navbar .nav-link,
+:root.light-mode .form-label {
+  color: #000000 !important;
+}
+
+/* Make social icons black in light mode (but keep card background white) */
+:root.light-mode .social-icon svg {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+/* Ensure hero name and tagline are black in light mode */
+:root.light-mode .hero-name {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+:root.light-mode .hero-tagline {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Keep placeholder text white in both modes */
+:root.light-mode .contact-form .form-control::placeholder,
+:root.light-mode input::placeholder,
+:root.light-mode textarea::placeholder,
+:root.light-mode .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Keep specific accent colors */
+:root.light-mode .custom-navbar .nav-link.active,
+:root.light-mode .timeline-date,
+:root.light-mode .project-link-text,
+:root.light-mode .course-link strong,
+:root.light-mode .all-courses-link,
+:root.light-mode .info-item strong,
+:root.light-mode a:not(.social-icon) {
+  color: #646cff !important;
+}

@@ -8,7 +8,6 @@ export default function Projects (props) {
         <div className="projects-container">
             <Navigation />
             <div className="projects-content">
-                <h1>Work</h1>
                 <Timeline />
                 <ProjectsDisplay />
             </div>

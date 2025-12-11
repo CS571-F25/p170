@@ -1,0 +1,96 @@
+.quote-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  min-height: 300px;
+}
+
+.quote-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1000px;
+  height: 200px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(100, 108, 255, 0.3) 0%,
+    rgba(138, 43, 226, 0.2) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.quote-text {
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.quote-text.fade-out {
+  opacity: 0;
+}
+
+.quote-text.fade-in {
+  opacity: 1;
+}
+
+.quote-section:hover .quote-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(100, 108, 255, 0.4) 0%,
+    rgba(138, 43, 226, 0.3) 40%,
+    transparent 70%
+  );
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .quote-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-section {
+    padding: 4rem 1.5rem;
+    min-height: 250px;
+  }
+
+  .quote-text {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+
+  .quote-glow {
+    width: 90%;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-text {
+    font-size: 1.5rem;
+  }
+
+  .quote-glow {
+    height: 120px;
+  }
+}
+

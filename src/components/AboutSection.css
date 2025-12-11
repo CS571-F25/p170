@@ -1,39 +1,42 @@
 .about-section {
   width: 100%;
   padding: 2rem 0;
+  background-color: #0a0a0a;
 }
 
 .about-card {
   border: none;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(100, 108, 255, 0.2), 0 0 40px rgba(138, 43, 226, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 2rem;
-  background: #ffffff;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .about-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 30px rgba(100, 108, 255, 0.3), 0 0 60px rgba(138, 43, 226, 0.15);
 }
 
 .personal-card {
-  background: #ffffff !important;
+  background: rgba(20, 20, 20, 0.95) !important;
 }
 
 .university-card {
-  background: #ffffff !important;
+  background: rgba(20, 20, 20, 0.95) !important;
 }
 
 .courses-card {
   height: 100%;
+  background: rgba(20, 20, 20, 0.95) !important;
 }
 
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   border-bottom: 3px solid #646cff;
   padding-bottom: 0.5rem;
 }
@@ -42,13 +45,13 @@
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .about-text {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   margin-bottom: 1rem;
 }
 
@@ -60,7 +63,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .interest-tags {
@@ -86,18 +89,18 @@
 
 .personal-info-box,
 .university-info-box {
-  background: rgba(100, 108, 255, 0.08);
+  background: rgba(100, 108, 255, 0.15);
   padding: 1.5rem;
   border-radius: 12px;
   margin-top: 1rem;
-  border: 1px solid rgba(100, 108, 255, 0.2);
+  border: 1px solid rgba(100, 108, 255, 0.3);
 }
 
 .info-item {
   padding: 0.75rem 0;
   font-size: 1rem;
-  color: #000000 !important;
-  border-bottom: 1px solid rgba(100, 108, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(100, 108, 255, 0.3);
 }
 
 .info-item:last-child {
@@ -115,7 +118,7 @@
 
 .course-description {
   font-size: 1rem;
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
   margin-bottom: 1.5rem;
   font-style: italic;
 }
@@ -128,7 +131,7 @@
 
 .course-item {
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: padding-left 0.3s ease;
 }
 
@@ -141,7 +144,7 @@
 }
 
 .course-link {
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   text-decoration: none;
   font-size: 1.05rem;
   display: block;
@@ -179,60 +182,7 @@
   transform: translateX(5px);
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .about-card {
-    background: rgba(255, 255, 255, 0.95) !important;
-  }
-
-  .personal-card {
-    background: rgba(255, 255, 255, 0.95) !important;
-  }
-
-  .university-card {
-    background: rgba(255, 255, 255, 0.95) !important;
-  }
-
-  .section-title,
-  .subsection-title,
-  .interests h4 {
-    color: rgba(255, 255, 255, 0.87);
-  }
-
-  .about-text {
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .info-item {
-    color: rgba(255, 255, 255, 0.87);
-    border-bottom-color: rgba(100, 108, 255, 0.3);
-  }
-
-  .personal-info-box,
-  .university-info-box {
-    background: rgba(100, 108, 255, 0.15);
-  }
-
-  .course-description {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .course-item {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .course-link {
-    color: rgba(255, 255, 255, 0.87);
-  }
-
-  .course-link:hover {
-    color: #646cff;
-  }
-
-  .course-link-footer {
-    border-top-color: rgba(100, 108, 255, 0.3);
-  }
-}
+/* Force dark mode - no light mode */
 
 /* Responsive design */
 @media (max-width: 768px) {

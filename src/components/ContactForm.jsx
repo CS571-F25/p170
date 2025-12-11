@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
 import './ContactForm.css'
 
 export default function ContactForm() {
@@ -8,19 +8,64 @@ export default function ContactForm() {
     email: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' or 'error'
+  const [submitMessage, setSubmitMessage] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    // Clear status message when user starts typing
+    if (submitStatus) {
+      setSubmitStatus(null)
+      setSubmitMessage('')
+    }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // You can add email sending logic here
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    setSubmitMessage('')
+
+    try {
+      const response = await fetch('https://cs571api.cs.wisc.edu/rest/f25/bucket/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CS571-ID': 'bid_b64bddae1cc1461da54a7ec89c1a8881fbca5fb0e6403bb7faa64f041cae6146'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          timestamp: new Date().toISOString()
+        })
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setSubmitMessage('Thank you! Your message has been sent successfully.')
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        })
+      } else {
+        const errorData = await response.json().catch(() => ({}))
+        setSubmitStatus('error')
+        setSubmitMessage(errorData.msg || 'Failed to send message. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+      setSubmitMessage('An error occurred. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -29,6 +74,20 @@ export default function ContactForm() {
         <h2 className="contact-form-title">Get In Touch</h2>
         
         <Form onSubmit={handleSubmit} className="contact-form">
+          {submitStatus && (
+            <Alert 
+              variant={submitStatus === 'success' ? 'success' : 'danger'}
+              className="mb-4"
+              onClose={() => {
+                setSubmitStatus(null)
+                setSubmitMessage('')
+              }}
+              dismissible
+            >
+              {submitMessage}
+            </Alert>
+          )}
+          
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3" controlId="formName">
@@ -40,6 +99,7 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting}
                 />
               </Form.Group>
             </Col>
@@ -53,6 +113,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting}
                 />
               </Form.Group>
             </Col>
@@ -68,11 +129,17 @@ export default function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               required
+              disabled={isSubmitting}
             />
           </Form.Group>
           
-          <Button variant="primary" type="submit" className="submit-button">
-            Send Message
+          <Button 
+            variant="primary" 
+            type="submit" 
+            className="submit-button"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
         </Form>
 

@@ -7,9 +7,8 @@ export default function Contact (props) {
         <div className="contact-container">
             <Navigation />
             <div className="contact-content">
-                <h1>Contact</h1>
                 <ContactForm />
             </div>
-        </div>
+    </div>
     )
 }

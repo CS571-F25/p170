@@ -1,42 +1,43 @@
-/* Custom styling for React Bootstrap Navbar */
+/* Custom styling for React Bootstrap Navbar - Dark Mode */
 .custom-navbar {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(10, 10, 10, 0.9) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   padding: 1.5rem 0 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .custom-navbar.scrolled {
   padding: 0.75rem 0 !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(10, 10, 10, 0.85) !important;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .custom-navbar.hovered {
   padding: 1.5rem 0 !important;
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(10, 10, 10, 0.95) !important;
 }
 
 .custom-navbar.scrolled.hovered {
   padding: 1.5rem 0 !important;
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(10, 10, 10, 0.95) !important;
 }
 
 /* Override Bootstrap Navbar brand and toggle button colors */
 .custom-navbar .navbar-brand,
 .custom-navbar .navbar-toggler {
-  color: rgba(33, 53, 71, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .custom-navbar .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 53, 71, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Custom Nav.Link styling */
 .custom-navbar .nav-link {
-  color: rgba(33, 53, 71, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   font-size: 1.1rem;
   font-weight: 500;
   padding: 0.5rem 1.5rem !important;
@@ -47,14 +48,14 @@
 }
 
 .custom-navbar .nav-link:hover {
-  color: #213547 !important;
-  background: rgba(33, 53, 71, 0.05) !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
   transform: translateY(-2px);
 }
 
 .custom-navbar .nav-link.active {
   color: #646cff !important;
-  background: rgba(100, 108, 255, 0.1) !important;
+  background: rgba(100, 108, 255, 0.2) !important;
 }
 
 .custom-navbar .nav-link.active::after {
@@ -69,45 +70,15 @@
   border-radius: 2px;
 }
 
-/* Dark mode support - if you want dark text on dark background, use this */
-@media (prefers-color-scheme: dark) {
-  .custom-navbar {
-    background: rgba(36, 36, 36, 0.8) !important;
-  }
+/* Navigation bar flex layout for theme toggle */
+.custom-navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .custom-navbar.scrolled {
-    background: rgba(36, 36, 36, 0.7) !important;
-  }
-
-  .custom-navbar.hovered {
-    background: rgba(36, 36, 36, 0.9) !important;
-  }
-
-  .custom-navbar.scrolled.hovered {
-    background: rgba(36, 36, 36, 0.9) !important;
-  }
-
-  .custom-navbar .navbar-brand,
-  .custom-navbar .navbar-toggler {
-    color: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .custom-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  .custom-navbar .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .custom-navbar .nav-link:hover {
-    color: #fff !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .custom-navbar .nav-link.active {
-    color: #646cff !important;
-    background: rgba(100, 108, 255, 0.2) !important;
-  }
+.custom-navbar .navbar-collapse {
+  display: flex;
+  align-items: center;
 }
 

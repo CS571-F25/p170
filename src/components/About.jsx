@@ -7,7 +7,6 @@ export default function About (props) {
         <div className="about-container">
             <Navigation />
             <div className="about-content">
-                <h1>About</h1>
                 <AboutSection />
             </div>
         </div>
